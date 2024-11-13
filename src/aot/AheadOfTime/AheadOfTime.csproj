@@ -1,0 +1,13 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFrameworks>net8.0;net9.0</TargetFrameworks>
+    <Nullable>enable</Nullable>
+
+    <PublishAot>true</PublishAot>
+    <IsAotCompatible>true</IsAotCompatible>
+
+    <AssemblyName>AheadOfTime_$(TargetFramework)_$(RuntimeIdentifier)</AssemblyName>
+  </PropertyGroup>
+
+</Project>
