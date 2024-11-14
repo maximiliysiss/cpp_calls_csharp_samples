@@ -1,0 +1,12 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+    <TargetFrameworks>net8.0;net471</TargetFrameworks>
+    <LangVersion>latest</LangVersion>
+
+    <AssemblyName>CppCli.Api_$(TargetFramework)</AssemblyName>
+  </PropertyGroup>
+
+</Project>

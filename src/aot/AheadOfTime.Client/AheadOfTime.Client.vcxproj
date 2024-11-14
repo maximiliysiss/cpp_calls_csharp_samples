@@ -129,11 +129,11 @@
     </ItemDefinitionGroup>
     <ItemDefinitionGroup>
         <PostBuildEvent>
-            <Message>Building .NET Library</Message>
-            <Command>dotnet build ../AheadOfTime/AheadOfTime.csproj</Command>
             <Message>Publishing .NET Library</Message>
-            <Command>dotnet publish ../AheadOfTime/AheadOfTime.csproj -f net8.0 -r win-x64 -o $(TargetDir)</Command>
-            <Command>dotnet publish ../AheadOfTime/AheadOfTime.csproj -f net9.0 -r win-x64 -o $(TargetDir)</Command>
+            <Command>
+                dotnet publish ../AheadOfTime/AheadOfTime.csproj -f net8.0 -r win-x64 -o $(TargetDir)
+                dotnet publish ../AheadOfTime/AheadOfTime.csproj -f net9.0 -r win-x64 -o $(TargetDir)
+            </Command>
         </PostBuildEvent>
     </ItemDefinitionGroup>
     <ItemGroup>
