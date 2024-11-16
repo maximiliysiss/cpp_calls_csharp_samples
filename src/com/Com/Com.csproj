@@ -1,0 +1,28 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net471</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+    <LangVersion>latest</LangVersion>
+
+    <ComVisible>true</ComVisible>
+
+    <SignAssembly>true</SignAssembly>
+    <AssemblyOriginatorKeyFile>Com.snk</AssemblyOriginatorKeyFile>
+    <PublicSign>false</PublicSign>
+  </PropertyGroup>
+
+  <Target Name="ILRebuilding" AfterTargets="Build">
+    <Message Text="Register COM component" Importance="high"/>
+    <Exec Command="C:\Windows\Microsoft.NET\Framework64\v4.0.30319\regasm $(TargetDir)$(AssemblyName).dll /codebase /tlb:$(AssemblyName).tlb"/>
+
+    <Message Text="Publish TLB" Importance="high"/>
+    <Copy SourceFiles="$(TargetDir)$(AssemblyName).tlb" DestinationFolder="$(ProjectDir)/bin/publish/"/>
+    <Copy SourceFiles="$(TargetDir)$(AssemblyName).dll" DestinationFolder="$(ProjectDir)/bin/publish/"/>
+
+    <Message Text="Add to GAC" Importance="high"/>
+    <Exec Command="gacutil /i $(TargetDir)$(AssemblyName).dll"/>
+  </Target>
+
+</Project>
