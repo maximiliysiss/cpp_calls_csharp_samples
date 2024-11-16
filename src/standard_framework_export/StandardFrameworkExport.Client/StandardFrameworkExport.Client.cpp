@@ -1,20 +1,51 @@
-// StandardFrameworkExport.Client.cpp : This file contains the 'main' function. Program execution begins and ends there.
-//
-
 #include <iostream>
+#include <filesystem>
+#include <regex>
+#include "windows.h"
+
+namespace fs = std::filesystem;
+
+typedef int (*proc)(int, int);
+
+void call_library(const std::string& file_name);
 
 int main()
 {
-    std::cout << "Hello World!\n";
+    for (const fs::path path("."); auto& p : fs::directory_iterator(path))
+    {
+        auto file_name = p.path().filename().string();
+
+        if (std::regex_match(file_name, std::regex("^StandardFrameworkExport.Wrapper_il.*.dll$")))
+        {
+            call_library(file_name);
+            std::cout << std::endl;
+        }
+    }
 }
 
-// Run program: Ctrl + F5 or Debug > Start Without Debugging menu
-// Debug program: F5 or Debug > Start Debugging menu
+void call_library(const std::string& file_name)
+{
+    const std::wstring name(file_name.begin(), file_name.end());
+    const auto library_handle = LoadLibrary(name.c_str());
 
-// Tips for Getting Started: 
-//   1. Use the Solution Explorer window to add/manage files
-//   2. Use the Team Explorer window to connect to source control
-//   3. Use the Output window to see build output and other messages
-//   4. Use the Error List window to view errors
-//   5. Go to Project > Add New Item to create new code files, or Project > Add Existing Item to add existing code files to the project
-//   6. In the future, to open this project again, go to File > Open > Project and select the .sln file
+    if (library_handle == nullptr)
+    {
+        std::cout << "Cannot open library by path '" << file_name << "'\n";
+        return;
+    }
+
+    std::cout << "Success LoadLibrary(\"" << file_name << "\")\n";
+
+    const auto proc_name = "Calculate";
+    const auto proc_address = (proc)GetProcAddress(library_handle, proc_name);
+
+    if (proc_address == nullptr)
+    {
+        std::cout << "Cannot get proc '" << proc_name << """' in file '" << file_name << "'\n";
+        return;
+    }
+
+    std::cout << "Success GetProcAddress(\"" << proc_name << "\")\n";
+
+    std::cout << "Calculation result is " << proc_address(1, 1) << '\n';
+}
