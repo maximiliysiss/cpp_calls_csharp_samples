@@ -28,6 +28,9 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "new_runtime", "new_runtime"
 	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "com", "com", "{E9CFA116-29E1-4B0C-B717-790DCC4536C0}"
+	ProjectSection(SolutionItems) = preProject
+		src\com\README.md = src\com\README.md
+	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "cpp_cli", "cpp_cli", "{2C7CFBD1-774E-40B1-815B-F9447FC4EDCD}"
 	ProjectSection(SolutionItems) = preProject
@@ -35,8 +38,14 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "cpp_cli", "cpp_cli", "{2C7C
 	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "framework_export", "framework_export", "{C588BF12-5F0D-4BE6-9A7F-BD5839CACF90}"
+	ProjectSection(SolutionItems) = preProject
+		src\framework_export\README.md = src\framework_export\README.md
+	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "standard_framework_export", "standard_framework_export", "{1C7CF38F-63E6-4DE7-8B39-6C36F2B05F1B}"
+	ProjectSection(SolutionItems) = preProject
+		src\standard_framework_export\README.md = src\standard_framework_export\README.md
+	EndProjectSection
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AheadOfTime", "src\aot\AheadOfTime\AheadOfTime.csproj", "{1B613C69-1A45-4CD5-83A9-22783945CA51}"
 EndProject
