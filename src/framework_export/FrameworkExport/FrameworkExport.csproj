@@ -1,0 +1,23 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net471</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+    <LangVersion>latest</LangVersion>
+  </PropertyGroup>
+
+  <Target Name="ILRebuilding" AfterTargets="Build">
+    <Message Text="Start rebuilding IL Code" Importance="high"/>
+
+    <Message Text="Decompile IL Code" Importance="high"/>
+    <Exec Command="ildasm /out:$(TargetDir)output.il $(TargetDir)$(AssemblyName).dll"/>
+
+    <Message Text="Rewrite IL Code" Importance="high"/>
+    <Exec Command="powershell -Command &quot;(gc $(TargetDir)output.il -Raw) -replace 'Calculate\(.*\n.*\n.*{', 'Calculate(int32 a,int32 b) cil managed { .export [1] as Calculate' | Out-File -FilePath $(TargetDir)output_il.il&quot;"/>
+
+    <Message Text="Compile IL Code" Importance="high"/>
+    <Exec Command="ilasm /out:$(TargetDir)$(AssemblyName)_il.dll /DLL /x64 /PE64 $(TargetDir)output_il.il"/>
+  </Target>
+
+</Project>
