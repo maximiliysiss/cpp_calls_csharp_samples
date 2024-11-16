@@ -45,7 +45,7 @@ class Wrapper
         const auto close_fptr = (hostfxr_close_fn)GetProcAddress(hostfxr_library, close_proc);
 
         if (!(init_fptr && get_delegate_fptr && close_fptr))
-            throw std::invalid_argument("Failed to load hostfxr");
+            throw std::runtime_error("Failed to load hostfxr");
 
         const fs::path runtime_config_path = params_.assembly + L".runtimeconfig.json";
 
@@ -54,7 +54,7 @@ class Wrapper
         int rc = init_fptr(runtime_config_path.c_str(), nullptr, &context);
 
         if (rc != 0 || context == nullptr)
-            throw std::invalid_argument("Failed to initialize runtime");
+            throw std::runtime_error("Failed to initialize runtime");
 
         // Get the load_assembly_and_get_function_pointer delegate
         load_assembly_and_get_function_pointer_fn load_assembly_and_get_function_pointer = nullptr;
@@ -66,7 +66,7 @@ class Wrapper
         {
             close_fptr(context);
 
-            throw std::invalid_argument("Failed to get load_assembly_and_get_function_pointer delegate");
+            throw std::runtime_error("Failed to get load_assembly_and_get_function_pointer delegate");
         }
 
         // Load the managed assembly and get a function pointer to the C# method
@@ -82,7 +82,7 @@ class Wrapper
         {
             close_fptr(context);
 
-            throw std::invalid_argument("Failed to get managed method pointer");
+            throw std::runtime_error("Failed to get managed method pointer");
         }
     }
 

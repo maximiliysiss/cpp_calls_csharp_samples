@@ -133,13 +133,4 @@
     <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets"/>
     <ImportGroup Label="ExtensionTargets">
     </ImportGroup>
-
-    <ItemDefinitionGroup>
-        <PostBuildEvent>
-            <Message>Publishing .NET Library</Message>
-            <Command>
-                dotnet build ../NewRuntime.Api/NewRuntime.Api.csproj -o $(TargetDir)
-            </Command>
-        </PostBuildEvent>
-    </ItemDefinitionGroup>
 </Project>
