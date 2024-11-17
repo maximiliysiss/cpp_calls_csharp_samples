@@ -13,7 +13,7 @@
     <PublicSign>false</PublicSign>
   </PropertyGroup>
 
-  <Target Name="ILRebuilding" AfterTargets="Build">
+  <Target Name="ComRegister" AfterTargets="Build">
     <Message Text="Register COM component" Importance="high"/>
     <Exec Command="C:\Windows\Microsoft.NET\Framework64\v4.0.30319\regasm $(TargetDir)$(AssemblyName).dll /codebase /tlb:$(AssemblyName).tlb"/>
 

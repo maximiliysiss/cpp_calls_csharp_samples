@@ -20,7 +20,7 @@ int main()
         hr = comObject.CreateInstance(__uuidof(Com::ComInterface));
         if (FAILED(hr))
         {
-            std::cerr << "Failed to create COM object. Status - " << hr << "/" << std::hex << hr << std::endl;
+            std::cerr << "Failed to create COM object. Status - " << std::hex << hr << std::endl;
             CoUninitialize();
             return -1;
         }
