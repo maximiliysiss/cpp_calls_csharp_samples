@@ -1,4 +1,4 @@
-﻿#include "Api.h"
+#include "Api.h"
 
 int calculate(int a, int b)
 {

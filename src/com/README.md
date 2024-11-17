@@ -15,6 +15,7 @@ provided strong support for interoperating with COM libraries.
 
 1. Requires the client to support interaction via COM
 2. Requires writing specific code and special actions for deployment
+3. Only for Windows machine
 
 ### Useful links
 
@@ -22,8 +23,10 @@ provided strong support for interoperating with COM libraries.
 
 ## Projects
 
-The solution contains 2 projects: a library that is automatically registered after assembly, and a client that supports
-working with the COM library
+The solution contains 2 projects:
+
+1. `Com` - a library that is automatically registered after assembly
+2. `Com.Client` - a client that supports working with the COM library
 
 ### Com
 

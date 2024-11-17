@@ -10,6 +10,8 @@ This is the most modern and simple way to present a .NET library as native compa
 
 1. Simple implementation: add attribute, configure `.csproj`
 2. Supported by modern Runtimes (.NET 8, .NET 9)
+3. Does not require explicit installation of .NET Runtime to work
+4. Compatible with Linux
 
 ### Cons
 
@@ -23,7 +25,10 @@ This is the most modern and simple way to present a .NET library as native compa
 
 ## Projects
 
-The solution consists of two projects: a library and a client.
+The solution consists of two projects:
+
+1. `AheadOfTime` - .NET library
+2. `AheadOfTime.Client` - C++ client
 
 ### AheadOfTime
 

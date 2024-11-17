@@ -3,7 +3,7 @@
   <PropertyGroup>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
-    <TargetFrameworks>net8.0;net471</TargetFrameworks>
+    <TargetFramework>net9.0</TargetFramework>
     <LangVersion>latest</LangVersion>
 
     <AssemblyName>CppCli.Api_$(TargetFramework)</AssemblyName>

@@ -15,7 +15,7 @@ int main()
     {
         auto file_name = p.path().filename().string();
 
-        if (std::regex_match(file_name, std::regex("^CppCli.Wrapper_.*.dll$")))
+        if (std::regex_match(file_name, std::regex("^CppCli.Wrapper.*.dll$")))
         {
             call_library(file_name);
             std::cout << std::endl;
