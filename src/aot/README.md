@@ -11,7 +11,7 @@ This is the most modern and simple way to present a .NET library as native compa
 1. Simple implementation: add attribute, configure `.csproj`
 2. Supported by modern Runtimes (.NET 8, .NET 9)
 3. Does not require explicit installation of .NET Runtime to work
-4. Compatible with Linux
+4. Compatible with Unix/Windows
 
 ### Cons
 
