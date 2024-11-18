@@ -105,7 +105,7 @@ class Wrapper
 
         if (hr != S_OK)
         {
-            std::cout << std::hex << hr << std::endl;
+            shutdown_core_clr(host_handle, domain_id);
             throw std::runtime_error("coreclr_create_delegate failed - status: " + std::to_string(hr));
         }
     }
