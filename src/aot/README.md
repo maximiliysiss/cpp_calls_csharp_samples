@@ -16,7 +16,7 @@ This is the most modern and simple way to present a .NET library as native compa
 ### Cons
 
 1. Imposes restrictions: you cannot use dynamics - for example, `Assembly.Load`, `Reflection`
-2. Not supported by older Runtimes (.NET Framework)
+2. Not supported by older Runtimes
 
 ### Useful links
 

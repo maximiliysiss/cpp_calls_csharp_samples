@@ -10,6 +10,7 @@ provided strong support for interoperating with COM libraries.
 
 1. Standardized implementation for interoperability between C++ and C#
 2. There is a lot of documentation
+3. Supports all .NET Runtimes
 
 ### Cons
 

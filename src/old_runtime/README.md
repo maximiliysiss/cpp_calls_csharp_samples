@@ -9,13 +9,12 @@ Using `coreclr.dll` is an old approach to bring up the .NET Runtime, the API of 
 ### Pros
 
 1. No use of additional languages - only C++ and C#
+2. Supports all .NET Runtimes
 
 ### Cons
 
 1. Complex implementation
 2. Requires defining additional wrapper C++ library
-3. Windows only
-4. .NET Framework only
 
 ### Useful links
 
