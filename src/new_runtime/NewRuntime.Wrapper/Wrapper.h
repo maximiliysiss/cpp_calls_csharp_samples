@@ -54,7 +54,7 @@ class Wrapper
         int rc = init_fptr(runtime_config_path.c_str(), nullptr, &context);
 
         if (rc != 0 || context == nullptr)
-            throw std::runtime_error("Failed to initialize runtime");
+            throw std::runtime_error("Failed to initialize runtime " + std::to_string(rc));
 
         // Get the load_assembly_and_get_function_pointer delegate
         load_assembly_and_get_function_pointer_fn load_assembly_and_get_function_pointer = nullptr;
@@ -66,7 +66,8 @@ class Wrapper
         {
             close_fptr(context);
 
-            throw std::runtime_error("Failed to get load_assembly_and_get_function_pointer delegate");
+            throw std::runtime_error(
+                "Failed to get load_assembly_and_get_function_pointer delegate " + std::to_string(rc));
         }
 
         // Load the managed assembly and get a function pointer to the C# method
@@ -82,7 +83,7 @@ class Wrapper
         {
             close_fptr(context);
 
-            throw std::runtime_error("Failed to get managed method pointer");
+            throw std::runtime_error("Failed to get managed method pointer " + std::to_string(rc));
         }
     }
 

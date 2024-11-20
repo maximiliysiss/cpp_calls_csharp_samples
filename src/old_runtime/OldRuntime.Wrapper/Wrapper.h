@@ -3,6 +3,7 @@
 #include <stdexcept>
 #include <filesystem>
 #include <iostream>
+#include <mutex>
 #include <Windows.h>
 #include <regex>
 #include <vector>
@@ -23,6 +24,7 @@ class Wrapper
     typedef int (*proc)(int, int);
 
     static Wrapper* instance_;
+    static std::mutex mutex_;
 
     WrapperParams params_;
     proc proc_ = nullptr;
@@ -158,6 +160,8 @@ class Wrapper
 public:
     static Wrapper* get_instance(const std::string& assembly, const std::string& type, const std::string& method)
     {
+        std::lock_guard lock(mutex_);
+
         if (!instance_)
         {
             instance_ = new Wrapper(WrapperParams{assembly, type, method});
@@ -174,3 +178,4 @@ public:
 };
 
 Wrapper* Wrapper::instance_ = nullptr;
+std::mutex Wrapper::mutex_;

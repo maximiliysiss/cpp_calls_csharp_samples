@@ -4,6 +4,6 @@ namespace AheadOfTime;
 
 public static class Api
 {
-    [UnmanagedCallersOnly(EntryPoint = "Calculate")]
+    [UnmanagedCallersOnly(EntryPoint = "calculate")]
     public static int Calculate(int a, int b) => a + b;
 }

@@ -36,7 +36,7 @@ void call_library(const std::string& file_name)
 
     std::cout << "Success LoadLibrary(\"" << file_name << "\")\n";
 
-    const auto proc_name = "Calculate";
+    const auto proc_name = "calculate";
     const auto proc_address = (proc)GetProcAddress(library_handle, proc_name);
 
     if (proc_address == nullptr)
