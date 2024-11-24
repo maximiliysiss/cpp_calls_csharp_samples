@@ -142,6 +142,7 @@ RUN_TEST(call_framework_export, "^FrameworkExport_il.*.dll$");
 RUN_TEST(call_standard_framework_export, "^StandardFrameworkExport.Wrapper_il.*.dll$");
 RUN_TEST(call_old_runtime, "^OldRuntime.Wrapper.*.dll$");
 RUN_TEST(call_new_runtime, "^NewRuntime.Wrapper.*.dll$");
+RUN_TEST(call_free_delegate_new_runtime, "^NewRuntimeDelegateFree.Wrapper.*.dll$");
 
 BENCHMARK(call_com);
 

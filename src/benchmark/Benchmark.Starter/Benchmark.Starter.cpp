@@ -19,6 +19,7 @@ int main()
         "call_com",
         "call_old_runtime",
         "call_new_runtime",
+        "call_free_delegate_new_runtime",
     };
 
     for (const auto& benchmark : benchmarks)

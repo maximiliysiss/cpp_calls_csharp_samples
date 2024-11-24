@@ -35,6 +35,7 @@ testing:
 | call_com                                                                       | 141065 ns | 107422 ns | 6400       |
 | BenchmarkFixture_call_old_runtime/call_old_runtime                             | 1257 ns   | 1245 ns   | 640000     |
 | BenchmarkFixture_call_new_runtime/call_new_runtime                             | 146 ns    | 140 ns    | 5600000    |
+| BenchmarkFixture_call_free_delegate_new_runtime/call_free_delegate_new_runtime | 113 ns    | 107 ns    | 6400000    |
 
 ## Summary of Benchmark Results
 
